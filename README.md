@@ -1,2 +1,2 @@
 # my-apps-script-utils
-Some code to reuse for developping in Apps Script
+I made this GitHub repository to save some apps scripts function to reuse for futur development and to share some codes.
