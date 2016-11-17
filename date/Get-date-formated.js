@@ -3,7 +3,7 @@ Use joliDate() to get date formatted as dd/mm/YYYY hh:mm
 */
 
 function joliDate(d){
-  var date = d;//d is a date object
+  var date = d;//d is a date object if d is a text we an use var date = new Date(d);
   return zero(date.getDate())+"/"+zero((date.getMonth()+1))+"/"+date.getFullYear()+" "+zero(date.getHours())+":"+zero(date.getMinutes());
 }
 
