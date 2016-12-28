@@ -22,7 +22,7 @@ function manageAnswer(e) {
     Logger.log(itemTitle + ': ' + itemResponse  );
   }
   try{
-    var issue = submitIssue(rep)
+    var issue = submitIssue(rep);
     var body = "<p>Hi,</p>"
     +"<p>Thank you for submitting your issue, you can follow it on this page : <a href='"+issue.html_url+"'>link</a>.</p>"
     +"<p>Title : "+rep.Title+"<br>"
