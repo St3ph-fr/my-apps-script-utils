@@ -73,7 +73,7 @@ folderColor.getName = function(id){
       return key
     }
   }
-  throw "Error to get the color name please check Hexa value : hexa";
+  throw "Error to get the color name please check Hexa value : " + hexa;
 }
 
 /**
