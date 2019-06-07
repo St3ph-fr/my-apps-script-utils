@@ -1,8 +1,18 @@
 /**
+ *
+ * This code has been updated to add the supportsAllDrives parameter support 
+ * and use the new Drives Resource that will replace the supportsTeamDrives
+ *
+ */
+
+
+/**
  * Create a new Team Drive.
  */
 function createTeamDrive() {
-  var teamDrive = Drive.Teamdrives.insert({name:'Team Drive from Apps Script'}, Utilities.getUuid())
+  // Old way
+  //var teamDrive = Drive.Teamdrives.insert({name:'Team Drive from Apps Script'}, Utilities.getUuid())
+  var teamDrive = Drive.Drives.insert({name:'Team Drive from Apps Script 2'}, Utilities.getUuid())
   Logger.log(teamDrive);
 }
 
@@ -17,7 +27,8 @@ function getTeamDrivePermissions(){
   do{
     permissions = Drive.Permissions.list(id, {maxResults:20,
                                           pageToken:pageToken,
-                                          supportsTeamDrives:true}) ;
+                                          // supportsTeamDrives:true
+                                          supportsAllDrives:true}) ;
     if(permissions.items && permissions.items.length > 0){
       for (var i = 0; i < permissions.items.length; i++) {
         var permission = permissions.items[i];
@@ -38,7 +49,10 @@ function adminListAllTeamDrive(){
   var pageToken;
   var teamDrives;
   do{
-    teamDrives = Drive.Teamdrives.list({pageToken:pageToken,
+    /*teamDrives = Drive.Teamdrives.list({pageToken:pageToken,
+                                       maxResults:50,
+                                       useDomainAdminAccess:true})*/
+    teamDrives = Drive.Drives.list({pageToken:pageToken,
                                        maxResults:50,
                                        useDomainAdminAccess:true})
     if(teamDrives.items && teamDrives.items.length > 0){
@@ -65,7 +79,8 @@ function adminGetTeamDrivePermissions(){
   do{
     permissions = Drive.Permissions.list(id, {maxResults:20,
                                           pageToken:pageToken,
-                                          supportsTeamDrives:true,
+                                          // supportsTeamDrives:true
+                                          supportsAllDrives:true,
                                           useDomainAdminAccess:true}) ;
     if(permissions.items && permissions.items.length > 0){
       for (var i = 0; i < permissions.items.length; i++) {
@@ -106,7 +121,10 @@ function setPermissions(){
         resource.additionalRoles = ["commenter"]
       }
       //Customize parameters sendNotificationEmails:false,supportsTeamDrives:true,useDomainAdminAccess:false
-      Drive.Permissions.insert(resource, id, {sendNotificationEmails:false,supportsTeamDrives:true,useDomainAdminAccess:false});
+      Drive.Permissions.insert(resource, id, {sendNotificationEmails:false,
+                                              // supportsTeamDrives:true
+                                              supportsAllDrives:true,
+                                              useDomainAdminAccess:false});
     });
   }
   
