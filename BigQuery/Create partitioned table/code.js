@@ -2,9 +2,9 @@
  * Define variable for your project
  */
 var projectId = 'ID_PROJECT_GCP'; //Your Project ID
-var datasetId = 'new_dataset';
+var datasetId = 'new_dataset'; //Don't use - but _
 var datasetDescription = 'My new dataset';
-var tableId = 'new_dataset_entries';
+var tableId = 'new_dataset_entries'; //Don't use - but _
 var tableName = 'My Table';
 var tableDescription = 'Partitioned table with all my data.';
 
