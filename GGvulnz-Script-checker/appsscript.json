@@ -1,0 +1,17 @@
+{
+  "timeZone": "Europe/Paris",
+  "dependencies": {
+    "enabledAdvancedServices": [{
+      "userSymbol": "AdminDirectory",
+      "serviceId": "admin",
+      "version": "directory_v1"
+    },{
+      "userSymbol": "AdminGroupsSettings",
+      "serviceId": "groupssettings",
+      "version": "v1"
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": [ "https://www.googleapis.com/auth/script.scriptapp",
+  "https://www.googleapis.com/auth/apps.groups.settings","https://www.googleapis.com/auth/admin.directory.group.readonly","https://www.googleapis.com/auth/spreadsheets"]
+}
