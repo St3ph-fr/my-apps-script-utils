@@ -10,7 +10,7 @@
 //
 // https://metinmediamath.wordpress.com/2013/11/27/how-to-calculate-the-elo-rating-including-example/
 //
-// This code is user in the Apps Script Mash web app : https://app.ez34.net/asm/
+// This code is user in the Apps Script Mash web app : https://app.ez34.net/appsscriptmash/
 //
 
 
