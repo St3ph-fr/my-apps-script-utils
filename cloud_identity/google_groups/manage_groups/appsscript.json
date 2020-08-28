@@ -1,0 +1,14 @@
+{
+  "timeZone": "Europe/Paris",
+  "dependencies": {
+    "enabledAdvancedServices": [{
+      "userSymbol": "AdminDirectory",
+      "serviceId": "admin",
+      "version": "directory_v1"
+    }]
+  },
+  "exceptionLogging": "STACKDRIVER",
+  "oauthScopes": ["https://www.googleapis.com/auth/script.external_request", "https://www.googleapis.com/auth/cloud-identity.groups.readonly",
+  "https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/admin.directory.user.readonly"],
+  "runtimeVersion": "V8"
+}
