@@ -40,8 +40,8 @@ function listGoogleGroups() {
  * Get details of a Google Groups
  */
 
-function getGoogleGroups(){
-  var email = "";
+function getGoogleGroups(email){
+  email = email || "YOUR_EMAIL_ADDRESS";
   var url = "https://cloudidentity.googleapis.com/v1beta1/"+getGroupName(email);
   var param = {
     method      : "get",
@@ -51,6 +51,7 @@ function getGoogleGroups(){
   
   var group = JSON.parse(UrlFetchApp.fetch(url,param).getContentText());
   Logger.log(JSON.stringify(group))
+  return group ;
 }
 
 /*
