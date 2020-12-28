@@ -8,7 +8,7 @@
     }]
   },
   "exceptionLogging": "STACKDRIVER",
-  "oauthScopes": ["https://www.googleapis.com/auth/script.external_request", "https://www.googleapis.com/auth/cloud-identity.groups.readonly",
+  "oauthScopes": ["https://www.googleapis.com/auth/script.external_request", "https://www.googleapis.com/auth/cloud-identity.groups",
   "https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/admin.directory.user.readonly"],
   "runtimeVersion": "V8"
 }
