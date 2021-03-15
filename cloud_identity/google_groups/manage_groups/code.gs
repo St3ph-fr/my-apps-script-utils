@@ -51,15 +51,15 @@ function getGoogleGroups(email){
   
   var group = JSON.parse(UrlFetchApp.fetch(url,param).getContentText());
   Logger.log(JSON.stringify(group))
-  return group ;
+  return group
 }
 
 /*
  * Get users in a Google Groups
  */
 
-function getGroupsMemberships(){
-  var email = 'support@cloud34.fr';
+function getGroupsMemberships(email){
+  email = email || "YOUR_EMAIL_ADDRESS";
   var url = 'https://cloudidentity.googleapis.com/v1beta1/'+getGroupName(email)+'/memberships';
    var param = {
     method      : "get",
@@ -75,6 +75,7 @@ function getGroupsMemberships(){
     if(page.memberships && page.memberships.length > 0){
       for(var i = 0; i< page.memberships.length;i++){
         var user = page.memberships[i]
+        console.log(user)
         results.push([user.preferredMemberKey.id,user.roles[0].name,user.name])
       }
     }
