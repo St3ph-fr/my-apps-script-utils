@@ -8,7 +8,7 @@ function setSecurityGroups() {
   // Remember first the group need to exist before to be updated
   // !! This change can't be modified in the future even by API !!
   
-  var email = "sgi_secuity_groups@test.gpartner.eu";
+  var email = "GROUP_EMAIL";
   var group = getGoogleGroups(email);
   
   var url = 'https://cloudidentity.googleapis.com/v1beta1/'+group.name+'?updateMask=labels' ;
@@ -35,6 +35,6 @@ function setSecurityGroups() {
 }
 
 function viewGroup(){
-  var email = "sgi_secuity_groups@test.gpartner.eu";
+  var email = "GROUP_EMAIL";
   getGoogleGroups(email);
 }
