@@ -7,8 +7,8 @@ function setUserMembershipWithExpiration() {
   
   // Remember first the group need to exist before to be updated
   
-  const email_group = 'sgi_expiration@test.gpartner.eu';
-  const email_user = 'aterieur@test.gpartner.eu';
+  const email_group = 'GROUP_EMAIL';
+  const email_user = 'USER_EMAIL';
   const day_expiration = 2;
 
 
@@ -54,8 +54,8 @@ function setUserMembershipWithExpiration() {
  */ 
 
 function viewUserExpiration(){
-  const email_group = 'sgi_expiration@test.gpartner.eu';
-  const email_user = 'aterieur@test.gpartner.eu';
+  const email_group = 'GROUP_EMAIL';
+  const email_user = 'USER_EMAIL';
   const url = 'https://cloudidentity.googleapis.com/v1beta1/'+getGroupName(email_group)+'/memberships';
    const param = {
     method      : "get",
