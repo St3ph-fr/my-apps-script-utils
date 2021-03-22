@@ -80,7 +80,7 @@ function viewUserExpiration(){
     pageToken = page.nextPageToken
   }while(pageToken)
 
-  const url2 = 'https://cloudidentity.googleapis.com/v1/'+membership;
+  const url2 = 'https://cloudidentity.googleapis.com/v1beta1/'+membership;
   const param2 = {
     method      : "GET",
     contentType : "application/json",
