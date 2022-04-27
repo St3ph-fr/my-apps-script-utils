@@ -4,10 +4,19 @@
 
 function init() {
   var syncToken ;
-  var page = Calendar.Events.list('primary', {}) ;
-  if(page.items && page.items.length > 0){
-    syncToken= page.nextSyncToken;
-  }
+  var nextPageToken ;
+  var now = new Date();
+  do{
+    var page = Calendar.Events.list('primary', {
+      timeMin: now.toISOString(),
+      pageToken:nextPageToken}) ;
+
+    if(page.items && page.items.length > 0){
+      syncToken= page.nextSyncToken;
+    }
+    nextPageToken = page.nextPageToken;
+    console.log('Tour 1')
+  }while(nextPageToken)
   
   PropertiesService.getUserProperties().setProperty('SYNC_TOKEN', syncToken)
   
