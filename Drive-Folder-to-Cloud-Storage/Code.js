@@ -1,3 +1,13 @@
+// Made by Stéphane Giron (https://twitter.com/st3phcloud)
+//
+// Upload a Drive Folder to Google Cloud Storage
+// Support shortcuts and upload Google Documents as MS Office files
+// Script works with connected user credential for Cloud Storage
+// This script will not browse sub folders
+//
+// More info : 
+//
+
 const FOLDER_ID = 'ENTER_FOLDER_ID_SOURCE';
 const BUCKET_NAME = 'BUCKET_NAME_IN_CLOUD_STORAGE';
 
