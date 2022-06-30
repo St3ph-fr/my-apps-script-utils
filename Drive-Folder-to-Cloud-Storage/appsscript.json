@@ -1,0 +1,18 @@
+{
+  "timeZone": "Europe/Paris",
+  "dependencies": {
+    "enabledAdvancedServices": [
+      {
+        "userSymbol": "Drive",
+        "version": "v2",
+        "serviceId": "drive"
+      }
+    ]
+  },
+   "oauthScopes": [
+    "https://www.googleapis.com/auth/devstorage.read_write","https://www.googleapis.com/auth/drive.readonly",
+    "https://www.googleapis.com/auth/script.external_request"
+  ],
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8"
+}
