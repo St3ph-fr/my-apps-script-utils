@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: sans-serif; padding: 40px; text-align: center; }
+      .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+      input { padding: 10px; width: 80%; margin-bottom: 15px; }
+      button { padding: 10px 20px; cursor: pointer; background: #4285F4; color: white; border: none; border-radius: 4px;}
+      #status { margin-top: 15px; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>App Login</h2>
+      <p>Enter your email to receive a magic link.</p>
+      
+      <input type="email" id="emailInput" placeholder="name@domain.com" required>
+      <br>
+      <button id="btn-submit" onclick="sendLink()">Send Magic Link</button>
+      
+      <p id="status"></p>
+    </div>
+
+    <script>
+      function sendLink() {
+        const email = document.getElementById('emailInput').value;
+        const statusEl = document.getElementById('status');
+        const btn = document.getElementById('btn-submit');
+        
+        if(!email) {
+          statusEl.innerText = "Please enter an email.";
+          return;
+        }
+
+        statusEl.innerText = "Sending...";
+        statusEl.style.color = "black";
+        btn.disabled = true;
+
+        // Call the backend function
+        google.script.run
+          .withSuccessHandler(function(response) {
+            btn.disabled = false;
+            statusEl.innerText = response.message;
+            statusEl.style.color = response.success ? "green" : "red";
+          })
+          .withFailureHandler(function(error) {
+            btn.disabled = false;
+            statusEl.innerText = "An error occurred.";
+            statusEl.style.color = "red";
+          })
+          .requestMagicLink(email);
+      }
+    </script>
+  </body>
+</html>
