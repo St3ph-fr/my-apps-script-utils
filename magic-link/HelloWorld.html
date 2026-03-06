@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: sans-serif; padding: 40px; }
+      .header { background: #f4f4f4; padding: 15px; border-radius: 5px; }
+      .content { margin-top: 20px; }
+      button { padding: 10px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    
+    <div class="header">
+      <h2>Hello World! 👋</h2>
+      <p>Logged in as: <strong><?= userEmail ?></strong></p>
+    </div>
+
+    <div class="content">
+      <p>This is the protected area of the application.</p>
+      
+      <script>
+        const currentSessionId = "<?= sessionId ?>";
+      </script>
+
+      <button onclick="testSecureAction()">Test Secure Action</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      function testSecureAction() {
+        document.getElementById('result').innerText = "Loading...";
+        
+        // Pass the session ID to verify the user is still active before doing the action
+        google.script.run
+          .withSuccessHandler(function(res) {
+            document.getElementById('result').innerText = res;
+          })
+          .withFailureHandler(function(err) {
+            document.getElementById('result').innerText = "Error: " + err.message;
+            // Optional: redirect to login page if session is truly expired
+            // window.top.location.href = "YOUR_APP_URL_HERE";
+          })
+          .doSecureAction(currentSessionId, "Sample Data 123");
+      }
+    </script>
+  </body>
+</html>
